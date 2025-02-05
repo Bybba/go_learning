@@ -169,7 +169,7 @@ func commandPokedex(config *Config, cache *pokecache.Cache, args []string) error
 	return nil
 }
 
-func createSupportedCommands(config *Config) map[string]cliCommand {
+func createSupportedCommands() map[string]cliCommand {
 	// Declare supported_commands as a placeholder
 	supported_commands := make(map[string]cliCommand)
 

@@ -27,7 +27,7 @@ func main() {
 
 	rand.Seed(time.Now().UnixNano())
 	// Create supported commands dynamically and updating the config with the generated commands
-	supported_commands := createSupportedCommands(config)
+	supported_commands := createSupportedCommands()
 	config.SupportedCommands = supported_commands
 
 	// Start CLI loop

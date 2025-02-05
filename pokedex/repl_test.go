@@ -45,6 +45,8 @@ func TestCleanInput(t *testing.T) {
 }
 
 func TestCommandMapWithCacheFound(t *testing.T) {
+	args := []string{}
+	
 	cache := pokecache.NewCache(5 * time.Second)
 
 	url := "https://pokeapi.co/api/v2/location-area/"
@@ -60,7 +62,7 @@ func TestCommandMapWithCacheFound(t *testing.T) {
 
 	config := &Config{Next: url}
 
-	err := commandMap(config, cache)
+	err := commandMap(config, cache, args)
 	if err != nil {
 		t.Fatalf("commandMap failed: %s", err)
 	}
@@ -75,6 +77,8 @@ func TestCommandMapWithCacheFound(t *testing.T) {
 }
 
 func TestCommandMapWithCacheMissing(t *testing.T) {
+	args := []string{}
+	
 	cache := pokecache.NewCache(5 * time.Second)
 
 	url := "https://pokeapi.co/api/v2/location-area/"
@@ -89,7 +93,7 @@ func TestCommandMapWithCacheMissing(t *testing.T) {
 		return json.Marshal(apiResponse)
 	}
 
-	err := commandMap(config, cache)
+	err := commandMap(config, cache, args)
 	if err != nil {
 		t.Fatalf("commandMap failed: %s", err)
 	}
